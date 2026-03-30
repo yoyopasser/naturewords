@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大自然的智慧 - 雙語互動單字學習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        /* 3D 翻轉效果設定 */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .flip-card-inner.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+
+        .vocab-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .vocab-item:last-child {
+            border-bottom: none;
+        }
+
+        .pos-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            background-color: #f1f5f9;
+            color: #64748b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fadeUp {
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="py-12 px-5 md:px-10">
+
+    <header class="max-w-6xl mx-auto text-center mb-16 animate-fadeUp" style="animation-delay: 0s;">
+        <h1 class="text-4xl md:text-5xl font-black text-slate-800 mb-4 tracking-tight">🌿 大自然的智慧</h1>
+        <p class="text-slate-500 text-lg md:text-xl font-medium">點擊畫布翻面，探索大自然隱藏的雙語哲理。</p>
+        <p class="text-sm text-slate-400 mt-2 bg-slate-100 inline-block px-4 py-1 rounded-full">💡 提示：點擊任何一張圖片即可進行中英文切換</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="gallery">
+        
+        <!-- 卡片 1: 柳樹 -->
+        <div class="flex flex-col animate-fadeUp" style="animation-delay: 0.1s;">
+            <div class="perspective-1000 w-full aspect-[4/5] mb-6 group">
+                <div class="flip-card-inner" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-front">
+                        <img src="1a.png" alt="Willow English" class="card-img" onerror="this.src='https://placehold.co/400x500/10b981/ffffff?text=找不到圖片+1a.png'">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white/95 text-emerald-700 px-4 py-2 rounded-full font-bold shadow-lg text-sm">點擊翻面</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="1b.png" alt="Willow Chinese" class="card-img" onerror="this.src='https://placehold.co/400x500/059669/ffffff?text=找不到圖片+1b.png'">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="flex items-center gap-2 mb-4 border-b border-emerald-100 pb-2">
+                    <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                    <div class="text-xs font-bold text-emerald-600 tracking-widest uppercase">核心單字</div>
+                </div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Growth</span><span class="text-emerald-600 font-medium">成長</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">v.</span>Remind</span><span class="text-emerald-600 font-medium">提醒</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Time</span><span class="text-emerald-600 font-medium">時間</span></div>
+            </div>
+        </div>
+
+        <!-- 卡片 2: 風 -->
+        <div class="flex flex-col animate-fadeUp" style="animation-delay: 0.2s;">
+            <div class="perspective-1000 w-full aspect-[4/5] mb-6 group">
+                <div class="flip-card-inner" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-front">
+                        <img src="2a.png" alt="Wind English" class="card-img" onerror="this.src='https://placehold.co/400x500/3b82f6/ffffff?text=找不到圖片+2a.png'">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white/95 text-blue-700 px-4 py-2 rounded-full font-bold shadow-lg text-sm">點擊翻面</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="2b.png" alt="Wind Chinese" class="card-img" onerror="this.src='https://placehold.co/400x500/2563eb/ffffff?text=找不到圖片+2b.png'">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="flex items-center gap-2 mb-4 border-b border-blue-100 pb-2">
+                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <div class="text-xs font-bold text-blue-600 tracking-widest uppercase">核心單字</div>
+                </div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">v.</span>Shift</span><span class="text-blue-600 font-medium">改變/轉換</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Direction</span><span class="text-blue-600 font-medium">方向</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Pace</span><span class="text-blue-600 font-medium">步調</span></div>
+            </div>
+        </div>
+
+        <!-- 卡片 3: 花朵 -->
+        <div class="flex flex-col animate-fadeUp" style="animation-delay: 0.3s;">
+            <div class="perspective-1000 w-full aspect-[4/5] mb-6 group">
+                <div class="flip-card-inner" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-front">
+                        <img src="3a.png" alt="Flowers English" class="card-img" onerror="this.src='https://placehold.co/400x500/ec4899/ffffff?text=找不到圖片+3a.png'">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white/95 text-pink-700 px-4 py-2 rounded-full font-bold shadow-lg text-sm">點擊翻面</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="3b.png" alt="Flowers Chinese" class="card-img" onerror="this.src='https://placehold.co/400x500/db2777/ffffff?text=找不到圖片+3b.png'">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="flex items-center gap-2 mb-4 border-b border-pink-100 pb-2">
+                    <div class="w-2 h-2 rounded-full bg-pink-500"></div>
+                    <div class="text-xs font-bold text-pink-600 tracking-widest uppercase">核心單字</div>
+                </div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">v.</span>Bloom</span><span class="text-pink-600 font-medium">盛開</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">adv.</span>Forever</span><span class="text-pink-600 font-medium">永遠</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Beauty</span><span class="text-pink-600 font-medium">美麗</span></div>
+            </div>
+        </div>
+
+        <!-- 卡片 4: 海洋 -->
+        <div class="flex flex-col animate-fadeUp" style="animation-delay: 0.4s;">
+            <div class="perspective-1000 w-full aspect-[4/5] mb-6 group">
+                <div class="flip-card-inner" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-front">
+                        <img src="4a.png" alt="Ocean English" class="card-img" onerror="this.src='https://placehold.co/400x500/0ea5e9/ffffff?text=找不到圖片+4a.png'">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white/95 text-sky-700 px-4 py-2 rounded-full font-bold shadow-lg text-sm">點擊翻面</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="4b.png" alt="Ocean Chinese" class="card-img" onerror="this.src='https://placehold.co/400x500/0284c7/ffffff?text=找不到圖片+4b.png'">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="flex items-center gap-2 mb-4 border-b border-sky-100 pb-2">
+                    <div class="w-2 h-2 rounded-full bg-sky-500"></div>
+                    <div class="text-xs font-bold text-sky-600 tracking-widest uppercase">核心單字</div>
+                </div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Stillness</span><span class="text-sky-600 font-medium">寧靜</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Storm</span><span class="text-sky-600 font-medium">風暴</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">n.</span>Strength</span><span class="text-sky-600 font-medium">力量</span></div>
+            </div>
+        </div>
+
+        <!-- 卡片 5: 雲彩 -->
+        <div class="flex flex-col animate-fadeUp" style="animation-delay: 0.5s;">
+            <div class="perspective-1000 w-full aspect-[4/5] mb-6 group">
+                <div class="flip-card-inner" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-front">
+                        <img src="5a.png" alt="Clouds English" class="card-img" onerror="this.src='https://placehold.co/400x500/64748b/ffffff?text=找不到圖片+5a.png'">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white/95 text-slate-700 px-4 py-2 rounded-full font-bold shadow-lg text-sm">點擊翻面</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="5b.png" alt="Clouds Chinese" class="card-img" onerror="this.src='https://placehold.co/400x500/475569/ffffff?text=找不到圖片+5b.png'">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="flex items-center gap-2 mb-4 border-b border-slate-100 pb-2">
+                    <div class="w-2 h-2 rounded-full bg-slate-500"></div>
+                    <div class="text-xs font-bold text-slate-500 tracking-widest uppercase">核心單字</div>
+                </div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">adj.</span>Heavy</span><span class="text-slate-600 font-medium">沉重的</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">phr.</span>Let go</span><span class="text-slate-600 font-medium">放手</span></div>
+            </div>
+        </div>
+
+        <!-- 卡片 6: 太陽 -->
+        <div class="flex flex-col animate-fadeUp" style="animation-delay: 0.6s;">
+            <div class="perspective-1000 w-full aspect-[4/5] mb-6 group">
+                <div class="flip-card-inner" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-front">
+                        <img src="6a.png" alt="Sun English" class="card-img" onerror="this.src='https://placehold.co/400x500/f59e0b/ffffff?text=找不到圖片+6a.png'">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white/95 text-amber-700 px-4 py-2 rounded-full font-bold shadow-lg text-sm">點擊翻面</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="6b.png" alt="Sun Chinese" class="card-img" onerror="this.src='https://placehold.co/400x500/d97706/ffffff?text=找不到圖片+6b.png'">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="flex items-center gap-2 mb-4 border-b border-amber-100 pb-2">
+                    <div class="w-2 h-2 rounded-full bg-amber-500"></div>
+                    <div class="text-xs font-bold text-amber-600 tracking-widest uppercase">核心單字</div>
+                </div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">adj.</span>Hidden</span><span class="text-amber-600 font-medium">隱藏的</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">v.</span>Rise</span><span class="text-amber-600 font-medium">升起</span></div>
+                <div class="vocab-item"><span class="font-bold text-slate-700"><span class="pos-tag">adv.</span>Again</span><span class="text-amber-600 font-medium">再次</span></div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto mt-20 text-center text-slate-400 text-sm border-t border-slate-200 pt-10 pb-10">
+        <p class="font-bold tracking-wider">© 2026 Interactive Education Canvas</p>
+    </footer>
+
+</body>
+</html>
